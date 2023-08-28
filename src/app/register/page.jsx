@@ -53,7 +53,7 @@ const RegisterPage = () => {
             />
           </div>
           <button className="w-full bg-primary text-white py-2 px-4 rounded hover:bg-[#3e9b6c] focus:outline-none focus:ring-2 focus:ring-blue-300">
-            Login
+            SIGN UP
           </button>
         </div>
       </div>

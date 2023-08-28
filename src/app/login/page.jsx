@@ -1,6 +1,8 @@
-'use client'
+/* eslint-disable react/no-unescaped-entities */
+"use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import loginImage from "public/contact.png";
 
 const LoginPage = () => {
@@ -32,9 +34,17 @@ const LoginPage = () => {
               placeholder="Enter your password"
             />
           </div>
-          <button className="w-full bg-primary text-white py-2 px-4 rounded hover:bg-[#3e9b6c] focus:outline-none focus:ring-2 focus:ring-blue-300">
+          <button className="w-full boder bg-primary text-white py-2 mb-2 px-4 rounded hover:bg-[#3e9b6c] focus:outline-none focus:ring-2 focus:ring-blue-300">
             Login
           </button>
+          <div className="my-4 border-t-2 border-gray-200 ">
+            <p className="py-4">
+              Don't have an account? Signup{" "}
+              <Link className="text-primary" href="/register">
+                here
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>

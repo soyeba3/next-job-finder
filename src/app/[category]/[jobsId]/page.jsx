@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
 import CategoryHeader from "@/components/categoryHeader/CategoryHeader";
@@ -7,34 +8,62 @@ import {
   CalendarIcon,
   MapPinIcon,
 } from "@heroicons/react/24/outline";
+import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
 const page = ({ params }) => {
+  const { isLoading, data, error } = useQuery({
+    queryKey: ["allData"],
+    queryFn: () =>
+      fetch(
+        `https://64eb3b83e51e1e82c5771ee6.mockapi.io/api/jobs/${params.jobsId}`
+      )
+        .then((res) => {
+          if (!res.ok) {
+            throw "Something went wrong!";
+          }
+          return res.json();
+        })
+        .catch((err) => {
+          throw err;
+        }),
+  });
+
+  console.log(data);
+
+  const {
+    jobTitle,
+    education,
+    deadline,
+    company,
+    experience,
+    jobType,
+    location,
+    salary,
+  } = data || {};
+
   return (
     <div className="min-h-[40vh] mx-28 border-[1px] bg-gray-100 border-gray-200 rounded-md">
       <CategoryHeader category={params.category} />
       <div className="flex flex-col items-center justify-center">
         <div className="w-3/4 flex flex-col gap-2 rounded-md p-20 my-6 bg-white border border-gray-200">
-          <h3 className="text-xl font-bold text-primary">Fontend Developer</h3>
-          <p className="text-base font-bold">A Reputed Company</p>
+          <h3 className="text-xl font-bold text-primary">{jobTitle}</h3>
+          <p className="text-base font-bold">{company}</p>
           <div className="flex items-center gap-2">
             <MapPinIcon className="h-6 w-6" />
-            <p>Tejgaon</p>
+            <p>{location}</p>
           </div>
           <div className="flex items-center gap-2">
             <AcademicCapIcon className="h-6 w-6" />
-            <p>
-              Bachelor`s degree in Computer Science, Engineering, or a related
-              field (preferred).
-            </p>
+            <p>{education}</p>
           </div>
           <div className="flex items-center gap-2">
             <BriefcaseIcon className="h-6 w-6" />
-            <p>At least 1 year</p>
+            <p>{experience}</p>
           </div>
           <div className="flex items-center gap-2">
             <CalendarIcon className="h-6 w-6" />
-            <p>Deadline : 13 Sep 2023</p>
+            <p>{deadline}</p>
           </div>
           <div className="flex gap-2">
             <Link
