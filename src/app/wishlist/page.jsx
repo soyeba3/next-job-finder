@@ -1,49 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import CategoryHeader from "@/components/categoryHeader/CategoryHeader";
-import JobsCard from "@/components/jobsCard/JobsCard";
-import CardSkeleton from "@/components/skeleton/CardSkeleton";
+import { useGetSavedJobs } from "@/components/hooks/hooks";
+import WishlistCard from "@/components/wishlistCard/WishlistCard";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
-const page = ({ params }) => {
+const page = () => {
   const [value, setValue] = useState("");
   const [selectedValue, setSelectedValue] = useState("Default");
 
-  //Fetch all jobs using tanstack query
-  const { isLoading, data, isFetching } = useQuery({
-    queryKey: ["allData"],
-    keepPreviousData: true,
-    queryFn: () =>
-      fetch("https://64eb3b83e51e1e82c5771ee6.mockapi.io/api/jobs")
-        .then((res) => {
-          if (!res.ok) {
-            throw "Something went wrong!";
-          }
-          return res.json();
-        })
-        .catch((err) => {
-          throw err;
-        }),
-  });
-
-  // Filter jobs by category
-  const filterJob =
-    data?.length > 0
-      ? data?.filter((item) => {
-          if (params.category === "allJobs") {
-            return item;
-          }
-          return item.category === params.category;
-        })
-      : "";
-
+  // Get all wishlist jobs from local storage
+  const [savedJobs, reload] = useGetSavedJobs();
   // Filter jobs by job type [i.e full time, intern, remote]
   const filterByType =
-    filterJob?.length > 0
-      ? filterJob.filter((item) => {
+    savedJobs?.length > 0
+      ? savedJobs?.filter((item) => {
           if (selectedValue === "Default") {
             return item;
           } else {
@@ -67,9 +39,11 @@ const page = ({ params }) => {
 
   return (
     <>
-      <title>{params?.category?.toUpperCase()}</title>
+      <title>Wishlist</title>
       <div className="min-h-[40vh] mx-28 md:mx-14 sm:mx-5 border-[1px] bg-gray-100 border-gray-200 rounded-md">
-        <CategoryHeader category={params.category} />
+        <div className="mx-[150px] md:mx-24 sm:mx-6 text-primary font-semibold text-lg mt-8">
+          Wishlist
+        </div>
         <div className="py-8 sm:py-4 px-36 md:px-20 sm:px-4 flex sm:flex-col gap-20 sm:gap-2 justify-center">
           <form className="flex-[2] text-black flex justify-between">
             <div className="w-full flex justify-center">
@@ -77,7 +51,7 @@ const page = ({ params }) => {
                 type="text"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-                className="px-4 bg-white h-10 py-2 sm:py-1 w-full focus:boder-[1px] focus:outline-green-400"
+                className="px-4 bg-white h-10 py-2 w-full focus:boder-[1px] focus:outline-green-400"
                 placeholder="Search..."
               />
               <button
@@ -93,7 +67,7 @@ const page = ({ params }) => {
             <select
               value={selectedValue}
               onChange={(e) => setSelectedValue(e.target.value)}
-              className="w-full sm:w-1/3 h-10 p-1 font-thin outline-none border-none"
+              className="relative w-full h-10 rounded-md p-1 font-thin outline-none border-none"
               type="select"
               name=""
             >
@@ -105,23 +79,18 @@ const page = ({ params }) => {
           </div>
         </div>
         <div
-          className="flex md:px-20 sm:w-full sm:px-3
+          className="flex sm:w-full md:px-20 sm:px-3
          flex-col items-center justify-center"
         >
-          {isLoading ? (
-            <>
-              <CardSkeleton />
-              <CardSkeleton />
-            </>
-          ) : filterByInput?.length > 0 ? (
+          {filterByInput?.length > 0 ? (
             filterByInput?.map((item) => (
-              <JobsCard key={item.id} item={item} category={params.category} />
+              <WishlistCard key={item.id} reload={reload} item={item} />
             ))
           ) : (
             <div>No Jobs Found</div>
           )}
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 };

@@ -5,7 +5,7 @@ import Link from "next/link";
 const CategoryHeader = ({ category }) => {
   const categoryName = category.toUpperCase();
   return (
-    <ul className="flex gap-2 mx-36 mt-8 text-gray-600">
+    <ul className="flex gap-2 mx-36 md:mx-20 sm:mx-4 mt-8 text-gray-600">
       <li className="flex justify-center items-center">
         <Link href="/">
           <HomeIcon className="h-4 w-4" />

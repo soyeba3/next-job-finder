@@ -16,6 +16,12 @@ module.exports = {
         primary: "#53C38B",
         primary_deep: "#21945a",
       },
+      screens: {
+        sm: { max: "640px" },
+        md: { min: "640px", max: "1023px" },
+        lg: "1280px",
+        xl: "1440px",
+      },
     },
   },
   plugins: [],

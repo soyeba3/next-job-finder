@@ -6,7 +6,7 @@ export const categories = [
   },
   {
     id: 2,
-    title: "Development & IT",
+    title: "Development",
     url: "development",
   },
   {
@@ -16,12 +16,12 @@ export const categories = [
   },
   {
     id: 4,
-    title: "Design & Creative",
+    title: "Design",
     url: "design",
   },
   {
     id: 5,
-    title: "Sales & Marketing",
+    title: "Sales",
     url: "sales",
   },
 ];
