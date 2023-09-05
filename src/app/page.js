@@ -9,10 +9,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Contact from "public/contact.png";
 import Hero from "public/hero.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [value, setValue] = useState("");
+  const [content, setContent] = useState("");
 
   const { isLoading, data, error } = useQuery({
     queryKey: ["allData"],
@@ -41,6 +42,14 @@ export default function Home() {
           return item?.jobTitle?.toLowerCase().includes(value?.toLowerCase());
         })
       : null;
+
+  useEffect(() => {
+    if (value.length > 0 && filterByInput?.length === 0) {
+      setContent("No jobs found");
+    } else {
+      setContent("");
+    }
+  }, [value, filterByInput]);
 
   return (
     <>
@@ -76,7 +85,13 @@ export default function Home() {
                       })
                     : ""}
                 </div>
-              ) : null}
+              ) : (
+                content && (
+                  <div className="w-[83%] md:w-[71%] sm:w-[73%] my-1 z-20 rounded-md px-2 absolute flex flex-col gap-2 top-12 py-2">
+                    {content}
+                  </div>
+                )
+              )}
               <button className="bg-primary hover:bg-primary_deep duration-200 text-white font-bold py-1 px-4 rounded">
                 Search
               </button>
