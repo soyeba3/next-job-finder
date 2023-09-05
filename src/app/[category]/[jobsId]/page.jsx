@@ -19,7 +19,8 @@ const page = ({ params }) => {
   const [savedJobs, reload] = useGetSavedJobs([]);
   const [isApplied, setIsApplied] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user =
+    typeof window !== "undefined" && JSON.parse(localStorage.getItem("user"));
   const router = useRouter();
   const { jobsId } = params || {};
 
@@ -41,8 +42,13 @@ const page = ({ params }) => {
   });
 
   useEffect(() => {
-    const appliedJobs = JSON.parse(localStorage.getItem("applied"));
-    const result = appliedJobs?.find((item) => item.id === jobsId);
+    const appliedJobs =
+      typeof window !== "undefined" &&
+      JSON.parse(localStorage.getItem("applied"));
+    const result =
+      typeof window !== "undefined" &&
+      appliedJobs?.find((item) => item.id === jobsId);
+
     if (result) {
       setIsApplied(true);
     }
@@ -61,8 +67,9 @@ const page = ({ params }) => {
     }
   };
 
+  // Handle save button
   const handleSaveButton = () => {
-    if (user) {
+    if (typeof window !== "undefined" && user) {
       let savedJobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
 
       savedJobs.push(data);

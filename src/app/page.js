@@ -156,7 +156,7 @@ export default function Home() {
                 <div className="pt-2">
                   <CheckCircleIcon className="h-5 w-5" />
                 </div>
-                <p className="text-console.log();">
+                <p>
                   Browse through thousands of job listings from top companies
                   and industries
                 </p>
@@ -165,7 +165,7 @@ export default function Home() {
                 <div className="pt-2">
                   <CheckCircleIcon className="h-5 w-5" />
                 </div>
-                <p className="text-console.log();">
+                <p>
                   Customize your search, set preferences, and find the perfect
                   match for your skills and aspirations
                 </p>
