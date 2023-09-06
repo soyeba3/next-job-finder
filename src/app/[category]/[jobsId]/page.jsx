@@ -96,7 +96,7 @@ const page = ({ params }) => {
   return (
     <>
       <title>{jobTitle}</title>
-      <div className="min-h-[40vh] mx-28 md:mx-14 sm:mx-4 sm:px-1 border-[1px] bg-gray-100 border-gray-200 rounded-md">
+      <div className="min-h-[40vh] mx-28 md:mx-14 sm:mx-0 sm:px-3 border-[1px] bg-gray-100 border-gray-200 rounded-md">
         <CategoryHeader category={params.category} />
         {isLoading || isFetching ? (
           <JobDetailSkeleton />

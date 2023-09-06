@@ -68,7 +68,7 @@ const page = ({ params }) => {
   return (
     <>
       <title>{params?.category?.toUpperCase()}</title>
-      <div className="min-h-[40vh] mx-28 md:mx-14 sm:mx-5 border-[1px] bg-gray-100 border-gray-200 rounded-md">
+      <div className="min-h-[40vh] mx-28 md:mx-14 sm:mx-0 border-[1px] bg-gray-100 border-gray-200 rounded-md">
         <CategoryHeader category={params.category} />
         <div className="py-8 sm:py-4 px-36 md:px-20 sm:px-4 flex sm:flex-col gap-20 sm:gap-2 justify-center">
           <form className="flex-[2] text-black flex justify-between">
@@ -105,7 +105,7 @@ const page = ({ params }) => {
           </div>
         </div>
         <div
-          className="flex md:px-20 sm:w-full sm:px-3
+          className="flex md:px-20 sm:w-full sm:px-4
          flex-col items-center justify-center"
         >
           {isLoading ? (

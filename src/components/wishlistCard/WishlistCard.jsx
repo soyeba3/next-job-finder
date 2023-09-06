@@ -9,6 +9,7 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { toast } from "react-hot-toast";
 import { useGetSavedJobs } from "../hooks/hooks";
 const WishlistCard = ({ item }) => {
   const {
@@ -29,6 +30,7 @@ const WishlistCard = ({ item }) => {
     const filterSavedJobs = savedJobs.filter((item) => item.id !== id);
     localStorage.setItem("savedJobs", JSON.stringify(filterSavedJobs));
     reload();
+    toast.success("Successfully Deleted");
   };
 
   return (

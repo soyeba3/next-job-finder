@@ -24,7 +24,7 @@ const JobsCard = ({ item }) => {
   return (
     <Link
       href={`/${category}/${id}`}
-      className="w-3/4 md:w-full sm:w-full flex flex-col gap-2 text-gray-700 rounded-md px-8 sm:px-4 py-4 my-6 sm:my-2 bg-white border border-gray-200 hover:drop-shadow-lg duration-300"
+      className="w-3/4 md:w-full sm:w-full flex flex-col gap-3 text-gray-700 rounded-md px-8 sm:px-4 py-4 my-6 sm:my-3 bg-white border border-gray-200 hover:drop-shadow-lg duration-300"
     >
       <h3 className="text-lg font-bold text-primary">{jobTitle}</h3>
       <p className="text-base font-bold">{company}</p>

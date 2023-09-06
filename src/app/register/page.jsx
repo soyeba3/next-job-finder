@@ -95,7 +95,7 @@ const RegisterPage = () => {
             className="bg-white p-8 w-[70%] md:w-[80%] sm:w-full rounded shadow-md"
           >
             <h2 className="text-2xl font-semibold mb-4">Sign up</h2>
-            <div className="mb-3">
+            <div className="mb-4">
               <label className="block text-gray-700 font-semibold mb-2">
                 Name
               </label>
@@ -109,10 +109,10 @@ const RegisterPage = () => {
                 placeholder="Enter your name"
               />
               {errors.name && touched.name ? (
-                <p className="text-red-500 px-3 pt-2">{errors.name}</p>
+                <p className="text-red-500 pt-2">{errors.name}</p>
               ) : null}
             </div>
-            <div className="mb-3">
+            <div className="mb-4">
               <label className="block text-gray-700 font-semibold mb-2">
                 Email
               </label>
@@ -126,10 +126,10 @@ const RegisterPage = () => {
                 placeholder="Enter your email"
               />
               {errors.email && touched.email ? (
-                <p className="text-red-500 px-3 pt-2">{errors.email}</p>
+                <p className="text-red-500 pt-2">{errors.email}</p>
               ) : null}
             </div>
-            <div className="mb-3 relative">
+            <div className="mb-4 relative">
               <label className="block text-gray-700 font-semibold mb-2">
                 Password
               </label>
@@ -155,10 +155,10 @@ const RegisterPage = () => {
               )}
 
               {errors.password && touched.password ? (
-                <p className="text-red-500 px-3 pt-2">{errors.password}</p>
+                <p className="text-red-500  pt-2">{errors.password}</p>
               ) : null}
             </div>
-            <div className="mb-3 relative">
+            <div className="mb-4 relative">
               <label className="block text-gray-700 font-semibold mb-2">
                 Confirm Password
               </label>
@@ -183,14 +183,12 @@ const RegisterPage = () => {
                 />
               )}
               {errors.confirm_password && touched.confirm_password ? (
-                <p className="text-red-500 px-3 pt-2">
-                  {errors.confirm_password}
-                </p>
+                <p className="text-red-500 pt-2">{errors.confirm_password}</p>
               ) : null}
             </div>
             <button
               type="submit"
-              className="w-full bg-primary text-white my-1 py-2 px-4 rounded hover:bg-[#3e9b6c] focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full bg-primary text-white my-2 py-2 px-4 rounded hover:bg-[#3e9b6c] focus:outline-none focus:ring-2 focus:ring-blue-300"
             >
               SIGN UP
             </button>

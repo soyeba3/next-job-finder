@@ -78,7 +78,7 @@ const LoginPage = () => {
             className="bg-white p-8 w-[70%] md:w-[80%] sm:w-full rounded shadow-md"
           >
             <h2 className="text-2xl font-semibold mb-4">Login</h2>
-            <div className="mb-3">
+            <div className="mb-4">
               <label className="block text-gray-700 font-semibold mb-2">
                 Email
               </label>
@@ -91,11 +91,11 @@ const LoginPage = () => {
                 className="w-full border rounded py-2 px-3 focus:outline-none focus:border-primary"
                 placeholder="Enter your email"
               />
-              {errors.name && touched.name ? (
-                <p className="text-red-500 px-3 pt-2">{errors.name}</p>
+              {errors.email && touched.email ? (
+                <p className="text-red-500 pt-2">{errors.email}</p>
               ) : null}
             </div>
-            <div className="mb-3 relative">
+            <div className="mb-4 relative">
               <label className="block text-gray-700 font-semibold mb-2">
                 Password
               </label>
@@ -132,7 +132,7 @@ const LoginPage = () => {
             )}
             <button
               type="submit"
-              className="w-full boder bg-primary text-white py-2 mb-2 px-4 rounded hover:bg-[#3e9b6c] focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full boder bg-primary text-white py-2 mt-2 mb-2 px-4 rounded hover:bg-[#3e9b6c] focus:outline-none focus:ring-2 focus:ring-blue-300"
             >
               Login
             </button>
