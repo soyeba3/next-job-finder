@@ -129,7 +129,7 @@ const page = ({ params }) => {
                     isApplied ? "" : "bg-primary"
                   } duration-200 hover:bg-[#367c59] ${
                     isApplied
-                      ? "text-primary border-[1px] border-primary hover:bg-inherit"
+                      ? "text-primary cursor-not-allowed border-[1px] border-primary hover:bg-inherit"
                       : "text-white"
                   }
 
@@ -140,7 +140,9 @@ const page = ({ params }) => {
                 <button
                   onClick={handleSaveButton}
                   disabled={isSaved}
-                  className="px-4 py-1 rounded-md border-[1px] duration-200 border-primary hover:bg-[#d1eee0ea] text-primary"
+                  className={`px-4 py-1 rounded-md  ${
+                    isSaved && "cursor-not-allowed hover:bg-inherit"
+                  } border-[1px] duration-200 border-primary hover:bg-[#d1eee0ea] text-primary`}
                   href="/jobs/2/apply"
                 >
                   {isSaved ? "Saved" : "Save"}

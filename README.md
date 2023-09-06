@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Job Finder Application
 
-## Getting Started
+## Overview
+This Job Finder Application is a web-based platform that enables users to search for job listings, apply for jobs, and manage their job-seeking activities efficiently. It's built using Next.js and incorporates Tanstack Query for data caching and fetching.
 
-First, run the development server:
+## Live Demo
+Link : [Live Link](https://next-job-finder-app.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Features
+- **Job Search:** Users can easily search for jobs using keywords and location filters.
+- **Sorting and Filtering:** Users can sort and filter job listings based on various criteria.
+- **User Authentication:** Secure login and signup functionality for users to create and manage accounts.
+- **Protected Routes:** Certain features, such as the user's wishlist and applied jobs section, are protected and require authentication.
+- **Wishlist:** Users can save job listings to their wishlist for later review.
+- **Applied Jobs:** Users can keep track of the jobs they've applied for.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
+- **Next.js:** A React framework for building web applications.
+- **Tanstack Query:** Used for efficient data querying and caching.
+- **[Other Technologies or Libraries Used]**: List any other important technologies or libraries you used.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Installation
+1. Clone the repository: `git clone https://github.com/soyeba3/next-job-finder.git`
+2. Install dependencies: `npm install`
+3. Start the development server: `npm run dev`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Usage
+1. Visit the application in your web browser.
+2. Register or log in to access all features.
+3. Search for jobs, add them to your wishlist, and apply for positions.
+4. Manage your applied jobs and wishlist from your dashboard.
 
-## Learn More
+## Contributing
+We welcome contributions! If you'd like to contribute to the project.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contact
+- **Author:** Md. Soyeb Chandani
+- **Email:** soyebchandani@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/soyeba3
